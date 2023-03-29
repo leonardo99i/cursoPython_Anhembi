@@ -14,28 +14,32 @@ Fórmulas
 '''
 
 def pesoIdeal(altura, sexo):
-
     if(sexo == 'M'):
         return (72.7 * altura) - 50
-    
     elif(sexo == 'F'):
         return (62.1 * altura) - 44.7
-    
     else:
-        return "Erro, indique M ou F para o sexo"
+        return 'Erro: indique M ou F para o sexo'
     
+def checaPeso(resultado, peso):
+    if(resultado == 'Erro: indique M ou F para o sexo'):
+        return resultado
+    elif(peso > resultado):
+        return "Você está acima do peso ideal, mas não desista você consegue"
+    elif(peso < resultado):
+        return "Você está abaixo do peso ideal, um pouco de trabalho e você consegue, não desista"
+    else:
+        return "Uau! Você está dentro do seu peso ideal, muito bom, continue assim"
 
-altura = float(input('Informe a sua altura em Metros. Ex: 1.75: '))
-peso = float(input('Informe o seu peso em Quilos. Ex: 85: '))
-sexo = str(input('Informe o sexo com M para Masculino ou F para Feminino: '))
-
-resultado = pesoIdeal(altura, sexo)
+while True:
+    altura = float(input('Informe a sua altura em Metros. Ex: 1.75: '))
+    peso = float(input('Informe o seu peso em Quilos. Ex: 85: '))
+    sexo = input('Informe o sexo com M para Masculino ou F para Feminino: ')
+    resultado = pesoIdeal(altura, sexo)
+    mensagem = checaPeso(resultado, peso)
+    if mensagem != 'Erro: indique M ou F para o sexo':
+        break
+    print("Erro: informe corretamente o sexo (M ou F)\n")
 
 print(f"Seu peso ideal é: {resultado:.1f} Kg")
-
-if(peso > resultado):
-    print("Você está acima do peso ideal, mas não desista você consegue")
-elif(peso < resultado):
-    print("Você está abaixo do peso ideal, um pouco de trabalho e você consegue, não desista")
-else:
-    print("Uallll você está dentro do seu peso ideal, muito bom continue assim")
+print(mensagem)
