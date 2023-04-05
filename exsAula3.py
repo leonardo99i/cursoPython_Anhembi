@@ -18,8 +18,8 @@ if(totalVendas < meta):
 
 elif totalVendas <= meta + 500:
     bonus = totalVendas * 0.05
-    print(f"A meta foi atingida com uma diferença de 500 unidades. Os vendedores ganham um bonus de 5%. Total de bônus: R${bonus:.2f}")
+    print(f"A meta foi atingida com uma diferença de 500 unidades. Os vendedores ganham um bonus de 5%.")
 
 else:
     bonus = totalVendas * 0.15
-    print(f"A meta foi ultrapassada em mais de 500 unidades! Os vendedores receberão 15% de bônus. Total de bônus: R${bonus:.2f}")
+    print(f"A meta foi ultrapassada em mais de 500 unidades! Os vendedores receberão 15% de bônus.")
