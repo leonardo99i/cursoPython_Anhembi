@@ -16,29 +16,34 @@ PARA TORNAR O DESAFIO INTERESSANTE, VAMOS FAZER O PROGRAMA CRIAR UM NÚMERO
 ALEATÓRIO PARA O ABASTECIMENTO. ESTE NÚMERO DEVERÁ SER ENTRE 1 E 52
 '''
 import random
+print("Precos: Gasolina R$5.69 | Álcool R$4.49")
+import random
 
 combustivel = input("Digite o tipo de combustível (A - Álcool e G - Gasolina): ")
-litros = random.randint(1, 52)
-
-preco_gasolina_sem_desc = 5.69
-preco_alcool_sem_desc = 4.49
-
-if combustivel == "G":
-    if litros <= 20:
-        preco_desc = litros * (preco_gasolina_sem_desc * 0.96)
-        preco_sem_desc = litros * preco_gasolina_sem_desc
-    else:
-        preco_desc = litros * (preco_gasolina_sem_desc * 0.94)
-        preco_sem_desc = litros * preco_gasolina_sem_desc
+if combustivel not in ['G', 'A']:
+    print("Erro: tipo de combustível inválido!")
 else:
-    if litros <= 20:
-        preco_desc = litros * (preco_alcool_sem_desc * 0.97)
-        preco_sem_desc = litros * preco_alcool_sem_desc
-    else:
-        preco_desc = litros * (preco_alcool_sem_desc * 0.95)
-        preco_sem_desc = litros * preco_alcool_sem_desc
+    litros = random.randint(1, 52)
 
-economia = preco_sem_desc - preco_desc
+    preco_gasolina_sem_desc = 5.69
+    preco_alcool_sem_desc = 4.49
+
+    if combustivel == "G":
+        if litros <= 20:
+            preco_desc = litros * (preco_gasolina_sem_desc * 0.96)
+            preco_sem_desc = litros * preco_gasolina_sem_desc
+        else:
+            preco_desc = litros * (preco_gasolina_sem_desc * 0.94)
+            preco_sem_desc = litros * preco_gasolina_sem_desc
+    else:
+        if litros <= 20:
+            preco_desc = litros * (preco_alcool_sem_desc * 0.97)
+            preco_sem_desc = litros * preco_alcool_sem_desc
+        else:
+            preco_desc = litros * (preco_alcool_sem_desc * 0.95)
+            preco_sem_desc = litros * preco_alcool_sem_desc
+
+    economia = preco_sem_desc - preco_desc
 
 print(f"Abasteceu {litros} litros de {combustivel}")
 print(f"Preço sem desconto: R${preco_sem_desc:.2f}")
