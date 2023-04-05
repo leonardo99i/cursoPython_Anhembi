@@ -20,19 +20,27 @@ import random
 combustivel = input("Digite o tipo de combustível (A - Álcool e G - Gasolina): ")
 litros = random.randint(1, 52)
 
-preco_gasolina = 5.39
-preco_alcool = 4.29
+preco_gasolina_sem_desc = 5.69
+preco_alcool_sem_desc = 4.49
 
 if combustivel == "G":
     if litros <= 20:
-        preco = litros * (preco_gasolina * 0.96)
+        preco_desc = litros * (preco_gasolina_sem_desc * 0.96)
+        preco_sem_desc = litros * preco_gasolina_sem_desc
     else:
-        preco = litros * (preco_gasolina * 0.94)
+        preco_desc = litros * (preco_gasolina_sem_desc * 0.94)
+        preco_sem_desc = litros * preco_gasolina_sem_desc
 else:
     if litros <= 20:
-        preco = litros * (preco_alcool * 0.97)
+        preco_desc = litros * (preco_alcool_sem_desc * 0.97)
+        preco_sem_desc = litros * preco_alcool_sem_desc
     else:
-        preco = litros * (preco_alcool * 0.95)
+        preco_desc = litros * (preco_alcool_sem_desc * 0.95)
+        preco_sem_desc = litros * preco_alcool_sem_desc
 
-print(f"Abasteceu {litros} litros de {combustivel}, totalizando R${preco:.2f}")
+economia = preco_sem_desc - preco_desc
 
+print(f"Abasteceu {litros} litros de {combustivel}")
+print(f"Preço sem desconto: R${preco_sem_desc:.2f}")
+print(f"Preço com desconto: R${preco_desc:.2f}")
+print(f"Economia: R${economia:.2f}")
